@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tHgnLIEs/lY=",
+  "success": true,
+  "projectFilePath": "/home/atilajr/Documentos/DinossauroGoogle/MeuJogo.csproj",
+  "expectedPackageFiles": [
+    "/home/atilajr/.nuget/packages/raylib-cs/8.0.0/raylib-cs.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
