@@ -45,7 +45,7 @@ Obstacles approach from the right, and the game becomes faster as you pass them.
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/OAtila/Dino-chrome.git>
    ```
 
 2. Navigate to the project directory containing the `.csproj` file.
