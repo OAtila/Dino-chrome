@@ -6,7 +6,6 @@ public class CactoQuadruplo : Obstacle
     public override void Init(Texture2D tx)
     {
         texture = tx;
-        speed = 300;
 
         animation = new Animation(new Rectangle(751, 2, 200, 101));
 
@@ -24,15 +23,7 @@ public class CactoQuadruplo : Obstacle
         );
     }
 
-    protected override void Respawn()
-    {
-        position = new Vector2(
-            Prefs.WIDTH,
-            Prefs.HEIGHT - 101
-        );
-
-        speed += 10;
-    }
+  
 
     protected override float GetWidth()
     {

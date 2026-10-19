@@ -9,6 +9,12 @@ public abstract class Obstacle
     protected float speed;
     protected Vector2 position;
     protected Rectangle collisionBox;
+    protected bool finished;
+    public bool IsFinished()
+    {
+        return finished;
+    }
+ 
 
     public Rectangle GetCollisionBox()
     {
@@ -18,6 +24,8 @@ public abstract class Obstacle
     public virtual void Init(Texture2D tx)
     {
         texture = tx;
+        
+        finished = false;
     }
 
     public virtual void Update(float delta)
@@ -28,7 +36,7 @@ public abstract class Obstacle
 
         if (position.X < -GetWidth())
         {
-            Respawn();
+            finished = true;
         }
     }
 
@@ -53,7 +61,9 @@ public abstract class Obstacle
         collisionBox.Y = position.Y;
     }
 
-    protected abstract void Respawn();
-
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     protected abstract float GetWidth();
 }

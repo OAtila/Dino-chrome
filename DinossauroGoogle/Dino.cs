@@ -9,6 +9,7 @@ public class Dino
     Animation runAnimation;
     Animation jumpAnimation;
     Animation duckAnimation;
+    Animation deathAnimation;
     Rectangle collisionBox;
     Rectangle duckCollisionBox;
     Rectangle standCollisionBox;
@@ -18,16 +19,23 @@ public class Dino
     {
         return collisionBox;
     }
+    public void PlayDeathAnimation()
+    {
+        animation = deathAnimation;
+    }
     Vector2 position; 
     float jumpForce;
     float speed;
     bool canJump;
+    Sound jumpSound;
     
     
 
     public void Init(Texture2D tx)
     {
         texture = tx;
+        jumpSound = Raylib.LoadSound("assets/sounds/jump.wav");
+
         //animation
        Rectangle[] runFrames =
         {
@@ -41,10 +49,12 @@ public class Dino
             new Rectangle(1984, 35, 119, 61)
         };
 
+        Rectangle deathFrames = new Rectangle(1689, 2, 88, 93);  
         Rectangle jumpFrame = new Rectangle(1337, 2, 88, 93);
         runAnimation = new Animation(runFrames, 0.2f);
         duckAnimation = new Animation(duckFrames, 0.2f);
         jumpAnimation = new Animation(jumpFrame);
+        deathAnimation = new Animation(deathFrames);
         animation = runAnimation;
 
         //caixas de colisao
@@ -76,6 +86,7 @@ public class Dino
             animation = jumpAnimation;
             canJump = false;
             speed = -jumpForce;
+            Raylib.PlaySound(jumpSound);
                
         }
         if(!canJump)
@@ -123,6 +134,19 @@ public class Dino
         duckCollisionBox.X = position.X;
         duckCollisionBox.Y = position.Y;
 
+    }
+
+    public void Reset()
+    {
+        position = new Vector2(0,Prefs.HEIGHT-93);
+        standCollisionBox = new Rectangle(position.X+40, position.Y,48,93);
+        duckCollisionBox = new Rectangle(position.X, position.Y,119,61);
+        collisionBox = standCollisionBox;
+        animation = runAnimation;
+
+        jumpForce = 500;
+        canJump = true;
+        speed = 0;
     }
 
 

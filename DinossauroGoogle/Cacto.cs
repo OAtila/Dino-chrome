@@ -7,7 +7,6 @@ public class Cacto : Obstacle
     {
         texture = tx;
 
-        speed = 300;
 
         animation = new Animation(
             new Rectangle(652, 2, 49, 101)
@@ -26,15 +25,7 @@ public class Cacto : Obstacle
         );
     }
 
-    protected override void Respawn()
-    {
-        position = new Vector2(
-            Prefs.WIDTH,
-            Prefs.HEIGHT - 101
-        );
-
-        speed += 10;
-    }
+  
 
     protected override float GetWidth()
     {

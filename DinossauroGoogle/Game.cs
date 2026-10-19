@@ -10,8 +10,10 @@ public class Game
     [System.STAThread]
     public static void Main()
     {
+        Raylib.SetTargetFPS(60);
         Level1 lv1 = new Level1();
         Raylib.InitWindow(Prefs.WIDTH, Prefs.HEIGHT, "Dinossauro do google");
+        Raylib.InitAudioDevice();
         lv1.Init();
 
         while (!Raylib.WindowShouldClose())
@@ -19,8 +21,9 @@ public class Game
             float deltaTime = Raylib.GetFrameTime();
             lv1.Update(deltaTime);
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.White);
+            
             lv1.Draw();
+            Raylib.DrawFPS(10, 10);
             Raylib.EndDrawing();
         }
 
