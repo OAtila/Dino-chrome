@@ -5,7 +5,7 @@ A Chrome Dino-inspired endless runner developed in **C# using Raylib-cs**.
 
 Jump over cacti, duck under pterodactyls, and survive for as long as possible while trying to beat your high score. This project was created as a learning experience to practice object-oriented programming, game loops, collision detection, animation, and game state management.
 
-![Dino Runner gameplay](docs/gameplay.gif)
+![Dino Runner gameplay](DinossauroGoogle/docs/gameplay.gif)
 
 ## Description
 
